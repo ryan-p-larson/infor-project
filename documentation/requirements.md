@@ -1,12 +1,12 @@
 # Requirements
 
-### Links
+#### Links
 - Existing student organization provided by [University of Iowa OrgSync](http://uiowa.orgsync.com/)
 - Event Oriented ([Dance Marathon page](https://dancemarathon.uiowa.edu/))
 - Typical mid size student org ([U. Iowa Cycling club](https://orgsync.com/57969/chapter))
 
 
-### Content
+#### Content
 
 **Should**
 - Media (pictures, movies, links, etc)
@@ -21,7 +21,7 @@
 - Organizations as cards on home screen
 
 ---
-### Authentication
+#### Authentication
 
 **Should**
 - Binary Authentication
@@ -34,7 +34,7 @@
 - Workflow authentication (approval)
 
 ---
-### Site Wide
+#### Site Wide
 
 **Should**
 - Contact, Description, Location (Meetings)
@@ -51,8 +51,8 @@
 **Would**
 - One page sites for orgs
 
-
-### Functions of Content Management System
+---
+#### Functions of Content Management System
 - Manage organization page
     * Organizations info, media, etc
 - manage user's page/interaction with System
