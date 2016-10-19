@@ -1,5 +1,11 @@
 # Requirements
 
+### Links
+- Existing student organization provided by [University of Iowa OrgSync](http://uiowa.orgsync.com/)
+- Event Oriented ([Dance Marathon page](https://dancemarathon.uiowa.edu/))
+- Typical mid size student org ([U. Iowa Cycling club](https://orgsync.com/57969/chapter))
+
+
 ### Content
 
 **Should**
@@ -45,3 +51,15 @@
 
 **Would**
 - One page sites for orgs
+
+
+### Functions of Content Management System
+- Manage organization page
+    * Organizations info, media, etc
+- manage user's page/interaction with System
+    * Permissions
+    * Preferences
+- Manage links and heirachies
+- create, edit, and remove [URLs, pages, links] (the same page can have it's URL content/changed)
+- Workflow (approve & publish site)
+-
