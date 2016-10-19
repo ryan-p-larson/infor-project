@@ -1,6 +1,6 @@
 # Informatics Capstone Project
 
-**By Mathew Carlin, Ryan Larson**
+By Mathew Carlin (mcarlin1), Ryan Larson
 ---
 
 ### Log
