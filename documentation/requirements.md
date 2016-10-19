@@ -15,7 +15,6 @@
 **Could**
 - Maps
 - Rows with content blocks ([X _ X])
--
 
 **Would**
 - Draggable reordering of content
@@ -62,4 +61,3 @@
 - Manage links and heirachies
 - create, edit, and remove [URLs, pages, links] (the same page can have it's URL content/changed)
 - Workflow (approve & publish site)
--
