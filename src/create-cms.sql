@@ -42,3 +42,38 @@ CREATE TABLE members (
 	FOREIGN KEY (orgID) REFERENCES orgs(orgID),
 	FOREIGN KEY (stuID) REFERENCES students(stuID)
 );
+
+CREATE TABLE layouts (
+	layoutID VARCHAR(32) NOT NULL, /* assign a human readable ID */
+	layoutHTML VARCHAR(8191) NOT NULL, 
+
+	PRIMARY KEY (layoutID)
+);
+
+CREATE TABLE designs (
+	designID VARCHAR(32) NOT NULL, /* assign a human readable ID */
+	designCSS VARCHAR(8191) NOT NULL, 
+
+	PRIMARY KEY (designID)
+);
+
+/* Pages,  */
+CREATE TABLE pages (
+    pageID INT NOT NULL AUTO_INCREMENT,
+	orgID INT, /* NOT NULL,*/
+
+	layoutID VARCHAR(32) NOT NULL, /* Foreign key to assign HTML to page */
+	designID VARCHAR(32) NOT NULL, /* Assign a pre-baked CSS file to page */
+
+    urlTitle VARCHAR(32) NOT NULL, /* what word goes into the url that distinguishes this page from others */
+    pageTitle VARCHAR(32) NOT NULL, /* title shown on bookmarks, tab, etc. */
+    menuTitle VARCHAR(32) NOT NULL, /* title shown in menus */
+    parent INT, /* parent page */
+    bodyTitle VARCHAR(128) NOT NULL, /* title shown in the body of the page */
+    body TEXT, /* content of the page (only text for now) */
+
+    PRIMARY KEY (pageID),
+	FOREIGN KEY (orgID) REFERENCES orgs(orgID),
+	FOREIGN KEY (layoutID) REFERENCES layouts(layoutID),
+	FOREIGN KEY (designID) REFERENCES designs(designID)
+);
