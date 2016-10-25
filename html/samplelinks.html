@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>Example Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+
+<div id="titleArea">
+	<h1><?php echo $pageTitle ?></h1> 
+	<p>the variable $pageTitle would go here</p>
+</div>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><a href="samplefile.html">Home</a></li>
+      <li><a href="sampledescription.html">Description</a></li>
+      <li><a href="samplecalendar.html">Calendar</a></li>
+	  <li><a href="sampleevents.html">Upcoming Events</a></li>
+	  <li><a href="samplelinks.html">Links</a></li> 
+    </ul>
+  </div>
+</nav>
+
+<div id="linksArea">
+	
+	<p>Need to learn more about our organization? Here are some links.</p>
+	<ul>
+		<li><a href="facebook.com">Facebook</a></li>
+		<li>twitter. not functioning</li>
+		<li>external page. not functioning</li>
+	</ul>
+	
+
+
+
+<div id="footerStuff">
+	<footer>
+		<?php echo $contactInfo ?>
+		<p>Here is where the $contactInfo would go</p>
+	</footer>
+</div>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+</html>
