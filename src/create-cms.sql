@@ -1,10 +1,24 @@
-﻿DROP TABLE IF EXISTS orgs, students, members, pages;
+﻿DROP TABLE IF EXISTS orgs, students, members, pages, layouts, designs;
+
+/* Create a table for the students,
+	of which one student can belong to multiple orgs */
+CREATE TABLE students (
+	stuID INT NOT NULL PRIMARY KEY, /* Used as foreign key for members table */
+	stuFirstName VARCHAR(32) NOT NULL,
+	stuLastName VARCHAR(32) NOT NULL,
+	stuPhone INT,
+	stuEmail VARCHAR(32) NOT NULL,
+	stuGrade INT,
+	stuHashPass VARCHAR(64),
+	stuLoggedIn INT NULL
+);
 
 /* This table defines the orginzation wide information,
 	most of this information will be used in every page */
 CREATE TABLE orgs (
 	orgID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	orgDesc VARCHAR(255) NOT NULL,	
+
 	orgEmail VARCHAR(32) NOT NULL,
 	orgPhone VARCHAR(16),
 	orgFB VARCHAR(128),
@@ -16,19 +30,11 @@ CREATE TABLE orgs (
 	orgPR INT,
 	orgTreasurer INT,
 	orgMeeting VARCHAR(128),
-	orgLogo VARCHAR(128)
-);
+	orgLogo VARCHAR(128),
 
-/* Create a table for the students,
-	of which one student can belong to multiple orgs */
-CREATE TABLE students (
-	stuID INT NOT NULL AUTO_INCREMENT PRIMARY KEY, /* Used as foreign key for members table */
-	stuFirstName VARCHAR(32) NOT NULL,
-	stuLastName VARCHAR(32) NOT NULL,
-	stuPhone INT,
-	stuEmail VARCHAR(32) NOT NULL,
-	stuGrade INT,
-	stuLoggedIn INT NULL
+	FOREIGN KEY (orgPresident) REFERENCES students(stuID),
+	FOREIGN KEY (orgPR) REFERENCES students(stuID),
+	FOREIGN KEY (orgTreasurer) REFERENCES students(stuID)
 );
 
 CREATE TABLE members (
@@ -77,3 +83,10 @@ CREATE TABLE pages (
 	FOREIGN KEY (layoutID) REFERENCES layouts(layoutID),
 	FOREIGN KEY (designID) REFERENCES designs(designID)
 );
+
+/* Add a test student, org, create membership */
+INSERT INTO students (stuID, stuFirstName, stuLastName, stuEmail) VALUES (1234, "Fake", "User", "test-email@testing.com"); 
+INSERT INTO orgs (orgDesc, orgEmail, orgPresident) VALUES ("This is a fake orginization", "fake-org@testing.com", 1234);
+
+/* Error getting the orgID */
+/*INSERT INTO members (orgID, stuID, memLeader, memTitle, memPermissions) VALUES (0, 1234, 1, "President", -1);*/
