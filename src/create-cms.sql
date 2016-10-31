@@ -87,6 +87,4 @@ CREATE TABLE pages (
 /* Add a test student, org, create membership */
 INSERT INTO students (stuID, stuFirstName, stuLastName, stuEmail) VALUES (1234, "Fake", "User", "test-email@testing.com"); 
 INSERT INTO orgs (orgDesc, orgEmail, orgPresident) VALUES ("This is a fake orginization", "fake-org@testing.com", 1234);
-
-/* Error getting the orgID */
-/*INSERT INTO members (orgID, stuID, memLeader, memTitle, memPermissions) VALUES (0, 1234, 1, "President", -1);*/
+INSERT INTO members (orgID, stuID, memLeader, memTitle, memPermissions) VALUES ((SELECT orgID FROM orgs WHERE orgid == 1), (SELECT student ID FROM students WHERE studentID == 1234), 1, "President", -1);
