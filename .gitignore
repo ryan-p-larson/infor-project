@@ -1,0 +1,3 @@
+# Ignore the database shell and config files
+*.sh
+config.php
