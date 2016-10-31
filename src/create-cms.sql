@@ -1,4 +1,4 @@
-﻿DROP TABLE IF EXISTS orgs, students, members, pages, layouts, designs;
+﻿DROP TABLE IF EXISTS members, pages, orgs, students, layouts, designs;
 
 /* Create a table for the students,
 	of which one student can belong to multiple orgs */
@@ -84,7 +84,20 @@ CREATE TABLE pages (
 	FOREIGN KEY (designID) REFERENCES designs(designID)
 );
 
+
+/* INSERTS */
+
 /* Add a test student, org, create membership */
 INSERT INTO students (stuID, stuFirstName, stuLastName, stuEmail) VALUES (1234, "Fake", "User", "test-email@testing.com"); 
 INSERT INTO orgs (orgDesc, orgEmail, orgPresident) VALUES ("This is a fake orginization", "fake-org@testing.com", 1234);
-INSERT INTO members (orgID, stuID, memLeader, memTitle, memPermissions) VALUES ((SELECT orgID FROM orgs WHERE orgid == 1), (SELECT student ID FROM students WHERE studentID == 1234), 1, "President", -1);
+INSERT INTO members (orgID, stuID, memLeader, memTitle, memPermissions) VALUES ((SELECT orgID FROM orgs WHERE orgid = 1), (SELECT stuID FROM students WHERE stuID = 1234), 1, "President", -1);
+
+/* Add test layouts and css so we can make a sample page*/
+INSERT INTO designs (designID, designCSS) VALUES ("defaultBootstrap", "<script src='http://code.jquery.com/jquery.min.js'></script><script src='http://code.jquery.com/ui/1.11.1/jquery-ui.js'></script>    <script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script><link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'><link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css'><link rel='stylesheet' href='http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css' />");
+INSERT INTO layouts (layoutID, layoutHTML) VALUES ("defaultHTML", "<example/>");
+
+/* Create a sample page */
+INSERT INTO pages (orgID, layoutID, designID, urlTitle, pageTitle, menuTitle, parentInt, bodyTitle, body) VALUES 
+((SELECT orgID FROM orgs WHERE orgid = 1),
+(SELECT layoutID FROM layouts WHERE layoutID = "defaultHTML"),
+(SELECT designID FROM designs WHERE designID = "defaultBootstrap"), "testingURL", "Example Org page", "Example Menu Title", -1, "Body test", "Lorum ipsum...");
