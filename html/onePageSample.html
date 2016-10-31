@@ -1,0 +1,112 @@
+<html>
+<head>
+<title>Example Page 2</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="onePageSample.css">
+	
+</head>
+
+<body>
+
+<div id="titleArea" class="row" style="text-align:center">
+	<h1><?php echo $pageTitle ?></h1> 
+	<p>the variable $pageTitle would go here</p>
+</div>
+
+<br>
+<br>
+
+<!--
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><a href="samplefile.html">Home</a></li>
+      <li><a href="sampledescription.html">Description</a></li>
+      <li><a href="samplecalendar.html">Calendar</a></li>
+	  <li><a href="sampleevents.html">Upcoming Events</a></li>
+	  <li><a href="samplelinks.html">Links</a></li> 
+    </ul>
+  </div>
+</nav>
+
+-->
+
+<div class="row" id="row1">
+
+
+	<div id="linksArea">
+		<p>A place for links.</p>
+		<ul>
+			<!--<li><a href="facebook.com">Facebook</a></li>-->
+			<li><a href="https://www.google.com/">Facebook</a></li>
+			<li>twitter. not functioning</li>
+			<li>external page. not functioning</li>
+		</ul>
+	</div>
+
+	<div id="descriptionArea">
+		<p>A description would go here.</p>
+		<p>A description would go here.</p>
+		<p>A description would go here.</p>
+		<p>A description would go here.</p>
+		<p>A description would go here.</p>
+		<p>A description would go here.</p>
+		<p>A description would go here.</p>
+		<p>A description would go here.</p>
+		
+
+	</div>
+
+	<div id="calendarArea">
+		<iframe src="https://calendar.google.com/calendar/embed?src=matthewconnorcarlin%40gmail.com&ctz=America/Chicago" style="border: 0" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
+
+	</div>
+
+	<br>
+
+
+
+
+</div>
+
+<!--              -->
+
+<br>
+
+
+
+
+<div class="row" id="row2">
+
+	<div id="eventsArea">
+		<p>A list of events would go here.<br> I am now just typing to fill space.<br>
+		Notice how many line breaks I am using because I want the div to be bigger and take up more space<br> for the example<br> fsdsfasfasfasfdasdfsdafsdffdssdf<br>
+		sdfsdafsdafsdfsdsdsadsadfsdsdafsdaf<br> fssdffdssdfsdfsdfadsafsdfsfdsdfsd<br>asdsaddsfasdfsdsdsdafsfdasdfsd </p>
+	</div>
+
+	<div id="imageArea">
+		<p>An image would go here.</p>
+	</div>
+
+	
+	<div id="footerArea">
+		<?php echo $contactInfo ?>
+		<p>Here is where the $contactInfo would go</p>
+		
+	</div>
+
+
+</div>
+
+
+
+
+</body>
+
+
+
+</html>
