@@ -17,7 +17,8 @@ CREATE TABLE students (
 	most of this information will be used in every page */
 CREATE TABLE orgs (
 	orgID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	orgDesc VARCHAR(255) NOT NULL,	
+	orgName VARCHAR(128) NOT NULL,
+	orgDesc VARCHAR(255) NOT NULL,
 
 	orgEmail VARCHAR(32) NOT NULL,
 	orgPhone VARCHAR(16),
@@ -25,7 +26,7 @@ CREATE TABLE orgs (
 	orgTwitter VARCHAR(128),
 	orgNational VARCHAR(128),	/* Links to the national or overseeing body for an org */
 	orgExtWeb VARCHAR(128),	/* Some orgs may have a self hosted site they have put up */
-	
+
 	orgPresident INT,			/* The int's for president/PR/Treasurer are the studentID's */
 	orgPR INT,
 	orgTreasurer INT,
@@ -51,34 +52,34 @@ CREATE TABLE members (
 
 CREATE TABLE layouts (
 	layoutID VARCHAR(32) NOT NULL, /* assign a human readable ID */
-	layoutHTML VARCHAR(8191) NOT NULL, 
+	layoutHTML VARCHAR(8191) NOT NULL,
 
 	PRIMARY KEY (layoutID)
 );
 
 CREATE TABLE designs (
 	designID VARCHAR(32) NOT NULL, /* assign a human readable ID */
-	designCSS VARCHAR(8191) NOT NULL, 
+	designCSS VARCHAR(8191) NOT NULL,
 
 	PRIMARY KEY (designID)
 );
 
 /* Pages,  */
 CREATE TABLE pages (
-    pageID INT NOT NULL AUTO_INCREMENT,
+  pageID INT NOT NULL AUTO_INCREMENT,
 	orgID INT, /* NOT NULL,*/
 
 	layoutID VARCHAR(32) NOT NULL, /* Foreign key to assign HTML to page */
 	designID VARCHAR(32) NOT NULL, /* Assign a pre-baked CSS file to page */
 
-    urlTitle VARCHAR(32) NOT NULL, /* what word goes into the url that distinguishes this page from others */
-    pageTitle VARCHAR(32) NOT NULL, /* title shown on bookmarks, tab, etc. */
-    menuTitle VARCHAR(32) NOT NULL, /* title shown in menus */
-    parent INT, /* parent page */
-    bodyTitle VARCHAR(128) NOT NULL, /* title shown in the body of the page */
-    body TEXT, /* content of the page (only text for now) */
+  urlTitle VARCHAR(32) NOT NULL, /* what word goes into the url that distinguishes this page from others */
+  pageTitle VARCHAR(32) NOT NULL, /* title shown on bookmarks, tab, etc. */
+  menuTitle VARCHAR(32) NOT NULL, /* title shown in menus */
+  parentInt INT, /* parent page */
+  bodyTitle VARCHAR(128) NOT NULL, /* title shown in the body of the page */
+  body TEXT, /* content of the page (only text for now) */
 
-    PRIMARY KEY (pageID),
+  PRIMARY KEY (pageID),
 	FOREIGN KEY (orgID) REFERENCES orgs(orgID),
 	FOREIGN KEY (layoutID) REFERENCES layouts(layoutID),
 	FOREIGN KEY (designID) REFERENCES designs(designID)
@@ -88,8 +89,8 @@ CREATE TABLE pages (
 /* INSERTS */
 
 /* Add a test student, org, create membership */
-INSERT INTO students (stuID, stuFirstName, stuLastName, stuEmail) VALUES (1234, "Fake", "User", "test-email@testing.com"); 
-INSERT INTO orgs (orgDesc, orgEmail, orgPresident) VALUES ("This is a fake orginization", "fake-org@testing.com", 1234);
+INSERT INTO students (stuID, stuFirstName, stuLastName, stuEmail) VALUES (1234, "Fake", "User", "test-email@testing.com");
+INSERT INTO orgs (orgName, orgDesc, orgEmail, orgPresident) VALUES ("Test Org", "This is a fake orginization", "fake-org@testing.com", 1234);
 INSERT INTO members (orgID, stuID, memLeader, memTitle, memPermissions) VALUES ((SELECT orgID FROM orgs WHERE orgid = 1), (SELECT stuID FROM students WHERE stuID = 1234), 1, "President", -1);
 
 /* Add test layouts and css so we can make a sample page*/
@@ -97,7 +98,7 @@ INSERT INTO designs (designID, designCSS) VALUES ("defaultBootstrap", "<script s
 INSERT INTO layouts (layoutID, layoutHTML) VALUES ("defaultHTML", "<example/>");
 
 /* Create a sample page */
-INSERT INTO pages (orgID, layoutID, designID, urlTitle, pageTitle, menuTitle, parentInt, bodyTitle, body) VALUES 
+INSERT INTO pages (orgID, layoutID, designID, urlTitle, pageTitle, menuTitle, parentInt, bodyTitle, body) VALUES
 ((SELECT orgID FROM orgs WHERE orgid = 1),
 (SELECT layoutID FROM layouts WHERE layoutID = "defaultHTML"),
 (SELECT designID FROM designs WHERE designID = "defaultBootstrap"), "testingURL", "Example Org page", "Example Menu Title", -1, "Body test", "Lorum ipsum...");
