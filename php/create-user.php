@@ -1,14 +1,12 @@
 <?php
     include_once("dbutils.php");
     include_once("config.php");
-	
-	$pageTitle = "Create User";
 ?>
 
 <html>
 
 <head>
-    <title><?php $pageTitle; ?></title>
+    <title>Test</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -22,101 +20,63 @@
     
 </head>
 
-<body>
-    
+<body> 
 <div class="container" style="width: 1024px">
 
 <div class="row">
     <div class="col-xs-12">
         <div class="page-header">
             <!-- Header -->
-            <h1><?php $pageTitle; ?></h1>
+            <h1>Test</h1>
             <a href="#">Link to index of site</a>
         </div>
     </div>  
 </div>
 
 <div class="row">
-<div class="col-xs-12">
-<form action="insertpage.php" method="post" enctype="multipart/form-data">
-    <div class="form-group">
-        <label for="urlTitle">URL Title</label>
-        <input type="text" class="form-control" name="urlTitle"/>
-    </div>
-    
-    <div class="form-group">
-        <label for="parent">Parent Page</label>
-        <?php echo $selectStatement ?>
-    </div>
-    
-    <div class="form-group">
-        <label for="pageTitle">Page Title</label>
-        <input type="text" class="form-control" name="pageTitle"/>
-    </div>
-    
-    <div class="form-group">
-        <label for="menuTitle">Menu Title</label>
-        <input type="text" class="form-control" name="menuTitle"/>
-    </div>
-    
-    <div class="form-group">
-        <label for="bodyTitle">Body Title</label>
-        <input type="text" class="form-control" name="bodyTitle"/>
-    </div>
-    
-    <div class="form-group">
-        <label for="body">Body</label>
-        <textarea class="form-control" name="body" rows="5"></textarea>
-    </div>
-    
-    <button type="submit" class="btn btn-default">Add</button>
-</form>
-</div> <!-- close column -->
+	<div class="col-xs-12">
+		<form action="input.php" method="post" enctype="multipart/form-data">
+			<div class="form-group">
+				<label for="stuID">Student ID</label>
+				<input type="text" class="form-control" name="stuID" placeholder="1234567" />
+			</div>
+			
+			<div class="form-group">
+				<label for="stuFirstName">First Name</label>
+				<input type="text" class="form-control" name="stuFirstName" placeholder="John" />
+			</div>
+			
+			<div class="form-group">
+				<label for="stuLastName">Last Name</label>
+				<input type="text" class="form-control" name="stuLastName" placeholder="Smith" />
+			</div>
+			
+			<div class="form-group">
+				<label for="stuPhone">Phone Number</label>
+				<input type="text" class="form-control" name="stuPhone" placeholder="(000) 555-5555" />
+			</div>
+			
+			<div class="form-group">
+				<label for="stuEmail">Student Email</label>
+				<input type="text" class="form-control" name="stuEmail" placeholder="john-smith@uiowa.edu" />
+			</div>
+			
+			<div class="form-group">
+				<label for="stuHashPass">Password</label>
+				<input type="text" class="form-control" name="stuHashPass" placeholder="pass" />
+			</div>
+			
+			<!-- One hidden field for the POST header -->
+			<input type="hidden" name="inputType" value="user" />
+			
+			<button type="submit" class="btn btn-default">Add</button>
+		</form>
+
+	</div> <!-- close column -->
 </div> <!-- close row -->
 
 
 
 </div> <!-- Closing container div -->
-
-<!-- Code for editing form -->
-<div id="dialog-form" title="Edit page" style="display: none">
-<form>
-    <fieldset>
-    <div class="form-group">
-        <label for="editurlTitle">URL Title</label>
-        <input type="text" class="form-control" name="editurlTitle" id="editurlTitle"/>
-    </div>
-    
-    <div class="form-group">
-        <label for="editparent">Parent Page</label>
-        <?php echo $editselectStatement ?>
-    </div>
-    
-    <div class="form-group">
-        <label for="editpageTitle">Page Title</label>
-        <input type="text" class="form-control" name="editpageTitle" id="editpageTitle"/>
-    </div>
-    
-    <div class="form-group">
-        <label for="editmenuTitle">Menu Title</label>
-        <input type="text" class="form-control" name="editmenuTitle" id="editmenuTitle"/>
-    </div>
-    
-    <div class="form-group">
-        <label for="editbodyTitle">Body Title</label>
-        <input type="text" class="form-control" name="editbodyTitle" id="editbodyTitle"/>
-    </div>
-    
-    <div class="form-group">
-        <label for="editbody">Body</label>
-        <textarea class="form-control" name="editbody" id="editbody" rows="5"></textarea>
-    </div>
-    
-    <input type="hidden" name="editid" id="editid"/>
-    </fieldset>
-</form>    
-    
-
-
 </body>
 </html>
