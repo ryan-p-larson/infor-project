@@ -1,0 +1,35 @@
+#homeNavbar {
+    box-shadow: 0px 10px 10px -5px rgba(47,44,44,.2);
+}
+
+
+.orgcards {
+	float: left;
+	position: relative;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-left: 0px;
+	margin-right: none;
+}
+
+.orgcardsimg{
+	width: 100%;
+	padding:inherit;
+	margin: inherit;
+}
+
+.orgcardsspan {
+	position: absolute;
+	
+	bottom: 0;
+	left: 0;
+	padding: none;
+	margin: none;
+
+	
+	/* Styling */
+	background-color: #333333;
+	color: #ffffff;
+	opacity: 0.75;
+	font-size: 18px;
+}
