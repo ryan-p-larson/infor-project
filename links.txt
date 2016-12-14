@@ -1,0 +1,10 @@
+http://demo.themewagon.com/preview/notes-free-responsive-product-launching-landing-page-template
+
+PHP functions
+	https://github.com/320press/wordpress-bootstrap/blob/master/functions.php
+	
+https://daveismyname.blog/blog/building-a-content-management-system-from-scratch
+
+http://www.elated.com/articles/cms-in-an-afternoon-php-mysql/
+
+https://css-tricks.com/php-for-beginners-building-your-first-simple-cms/
